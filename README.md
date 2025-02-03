@@ -47,7 +47,7 @@ available CI badges. Make sure to install Ruby and execute the following steps:
 
 ```console
 bundle install
-bin/status
+bundle exec scripts/generate-status
 ```
 
 ## Security
