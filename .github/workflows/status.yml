@@ -30,7 +30,7 @@ jobs:
       - name: Execute script
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: bin/generate-status
+        run: bin/status
 
       - name: Update repo
         run: git pull --rebase --autostash
