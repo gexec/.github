@@ -1,0 +1,63 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": [
+    "Preset used by Gexec"
+  ],
+  "extends": [
+    "config:base",
+    ":semanticCommits",
+    ":semanticCommitType(deps)"
+  ],
+  "packageRules": [
+    {
+      "description": "Semantic commits for major updates",
+      "matchUpdateTypes": [
+        "major"
+      ],
+      "semanticCommitType": "major",
+      "semanticCommitScope": "deps",
+      "automerge": true
+    },
+    {
+      "description": "Semantic commits for minor updates",
+      "matchUpdateTypes": [
+        "minor"
+      ],
+      "semanticCommitType": "minor",
+      "semanticCommitScope": "deps",
+      "automerge": true
+    },
+    {
+      "description": "Semantic commits for patch updates",
+      "matchUpdateTypes": [
+        "patch"
+      ],
+      "semanticCommitType": "patch",
+      "semanticCommitScope": "deps",
+      "automerge": true
+    },
+    {
+      "description": "Automerge untagged golang libs",
+      "matchDepNames": [
+        "golang.org/x/crypto",
+        "golang.org/x/net"
+      ],
+      "semanticCommitType": "patch",
+      "semanticCommitScope": "deps",
+      "automerge": true
+    },
+    {
+      "description": "Build tool version upgrades",
+      "groupName": "build tools",
+      "matchManagers": [
+        "github-actions"
+      ],
+      "semanticCommitType": "ci",
+      "semanticCommitScope": "tools",
+      "automerge": true
+    }
+  ],
+  "labels": [
+    "renovate"
+  ]
+}

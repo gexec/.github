@@ -1,0 +1,7 @@
+# Status
+<%- @repos.each do |r| -%><%- unless r[:workflows].empty? -%>
+
+## <%= r[:name] %>
+<%- r[:workflows].each do |w| -%>[![<%= w %> build](https://github.com/gexec/<%= r[:name] %>/actions/workflows/<%= w %>.yml/badge.svg)](https://github.com/gexec/<%= r[:name] %>/actions/workflows/<%= w %>.yml)<%= " " unless r[:workflows].last == w %><%- end -%>
+
+<%- end -%><%- end -%>
