@@ -63,9 +63,10 @@
 
                     terraform-format = {
                       enable = true;
+                      package = pkgs.terraform;
                     };
 
-                    terraform-validate = {
+                    tflint = {
                       enable = true;
                     };
                   };
