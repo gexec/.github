@@ -1,4 +1,9 @@
 variable "members" {
+  description = "List of GitHub organization members"
+  type = list(object({
+    name = string
+    role = string
+  }))
   default = [
     {
       name = "gexecz"
@@ -9,13 +14,23 @@ variable "members" {
       role = "admin"
     },
     {
-      name = "LukasHirt"
+      name = "lukashirt"
       role = "member"
     },
   ]
 }
 
 variable "teams" {
+  description = "List of GitHub teams with members"
+  type = list(object({
+    name       = string
+    privacy    = string
+    permission = string
+    members = list(object({
+      name = string
+      role = string
+    }))
+  }))
   default = [
     {
       name       = "admins"
@@ -53,7 +68,7 @@ variable "teams" {
           role = "maintainer"
         },
         {
-          name = "LukasHirt"
+          name = "lukashirt"
           role = "member"
         },
       ]
